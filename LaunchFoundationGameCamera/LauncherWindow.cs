@@ -12,7 +12,7 @@ namespace LaunchFoundationGameCamera
     {
         private readonly string DiscordInvite = "discord.gg/rdS8rtEGYG";
         private string DiscordInviteLink => DiscordInvite.Insert(0, "https://");
-        private string GithubLink => "https://github.com/";
+        private string GithubLink => "https://github.com/Nesae-avi/FoundationGameCamera";
 
         private readonly List<string> SupportedGames = new()
         {

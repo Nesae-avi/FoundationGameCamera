@@ -6,6 +6,7 @@ namespace LaunchFoundationGameCamera
     {
         public static bool Unpack(string resourceName, string filePath)
         {
+            var x = Assembly.GetExecutingAssembly().GetManifestResourceNames();
             using var s = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
 
             if (s is Stream stream)
@@ -28,6 +29,7 @@ namespace LaunchFoundationGameCamera
             else
             {
                 Logger.LogLine("Cannot find the requested resource");
+                return false;
             }
 
             return true;

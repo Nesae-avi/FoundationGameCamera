@@ -139,8 +139,8 @@
             this.label_LoadingInfo.Name = "label_LoadingInfo";
             this.label_LoadingInfo.Size = new System.Drawing.Size(800, 66);
             this.label_LoadingInfo.TabIndex = 0;
-            this.label_LoadingInfo.Text = "To begin, make sure that the game is running and the save has been fully loaded b" +
-    "efore initiating FGC.";
+            this.label_LoadingInfo.Text = "To begin make sure that the game is running and the save has been fully loaded be" +
+    "fore initiating FGC.";
             this.label_LoadingInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_Top

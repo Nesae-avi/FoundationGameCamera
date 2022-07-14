@@ -90,8 +90,8 @@ namespace LaunchFoundationGameCamera
                 IntPtr kernelModuleHandle = GetModuleHandle("kernel32.dll");
                 IntPtr loadLibraryPointer = GetProcAddress(kernelModuleHandle, "LoadLibraryW");
 
-                Logger.LogLine($"Kernel module found at {kernelModuleHandle}");
-                Logger.LogLine($"LoadLibrary function found at {loadLibraryPointer}");
+                Logger.LogLine($"Kernel module found at 0x{Convert.ToString(kernelModuleHandle.ToInt64(), 16)}");
+                Logger.LogLine($"LoadLibrary function found at 0x{Convert.ToString(loadLibraryPointer.ToInt64(), 16)}");
 
                 var pathAsUnicode = Encoding.Unicode.GetBytes(dllPath);
                 var pathLength = pathAsUnicode.Length + Marshal.SizeOf(typeof(ushort));

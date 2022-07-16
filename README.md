@@ -10,6 +10,7 @@ A camera mod for the Foundation Engine.
 3. In the launcher app click on the appropriate **LOAD** button.
 4. Enjoy!
 
+Do not use the camera mod and the field of view fix at the same time.
 ## Discord Server
 
 For support, troubleshooting and sharing screen captures join the discord server: [FGC Discord](https://discord.com/invite/rdS8rtEGYG).
@@ -36,6 +37,6 @@ The current version displays key bindings in a console window once the mod has b
 | Toggle Depth of Field | NUMPAD 4 |
 | Disable the mod | END |
 
-## Acknowledgments
+### Acknowledgments
 
-Working on this project has been inspired by the [OpenGameCamera](https://github.com/coltonon/OpenGameCamera) for Star Wars Battlefront II.
+Working on this project was inspired by the [OpenGameCamera](https://github.com/coltonon/OpenGameCamera) for Star Wars Battlefront II.

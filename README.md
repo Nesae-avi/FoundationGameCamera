@@ -7,7 +7,8 @@ A camera mod for the Foundation Engine.
 
 1. Download the latest version of the FGC Launcher.
 2. Start **Rise of the Tomb Raider** and load your saved game.
-3. Open the Launcher and click on the START button.
+3. In the launcher app click on the appropriate **LOAD** button.
+4. Enjoy!
 
 ## Discord Server
 
@@ -37,4 +38,4 @@ The current version displays key bindings in a console window once the mod has b
 
 ## Acknowledgments
 
-Working on this mod has been inspired by the [OpenGameCamera](https://github.com/coltonon/OpenGameCamera) for Star Wars Battlefront II.
+Working on this project has been inspired by the [OpenGameCamera](https://github.com/coltonon/OpenGameCamera) for Star Wars Battlefront II.

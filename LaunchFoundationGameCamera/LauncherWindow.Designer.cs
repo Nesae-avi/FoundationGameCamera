@@ -198,6 +198,7 @@
             this.Name = "LauncherWindow";
             this.Text = "Foundation Game Camera Launcher";
             this.Load += new System.EventHandler(this.LauncherWindow_Load);
+            this.Shown += new System.EventHandler(this.LauncherWindow_Shown);
             this.panel_Content.ResumeLayout(false);
             this.panel_Bottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Github)).EndInit();

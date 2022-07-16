@@ -25,6 +25,59 @@ namespace LaunchFoundationGameCamera
             InitializeComponent();
         }
 
+        private void UpdateApplication()
+        {
+            var latestReleaseLink = $"{GithubLink}/releases/latest";
+
+            using var client = new HttpClient();
+            var result = client.GetAsync(latestReleaseLink).Result;
+
+            if (result.RequestMessage != null && result.RequestMessage.RequestUri != null)
+            {
+                // Get version from release title.
+
+                var Doc = new HtmlAgilityPack.HtmlDocument();
+                Doc.LoadHtml(result.Content.ReadAsStringAsync().Result);
+
+                var newVersion = Doc.DocumentNode.SelectSingleNode("//*[@id=\"repo-content-pjax-container\"]/div/div/div/div[1]/div[2]/div[1]/h1").InnerText;
+
+                // Check with current version and download new if available.
+
+                if (newVersion != AppInformation.Version)
+                {
+                    if (MessageBox.Show("An update is available. Click OK to download and restart the application.",
+                                        "Update",
+                                        MessageBoxButtons.OKCancel,
+                                        MessageBoxIcon.Asterisk) == DialogResult.OK)
+                    {
+                        var downloadLink = result.RequestMessage.RequestUri.ToString().Replace("tag", "download");
+                        var launcherFileLink = $"{downloadLink}/LaunchFoundationGameCamera.exe";
+                        var destinationFileName = $"LaunchFoundationGameCamera_{newVersion}.exe";
+
+                        using var stream = client.GetStreamAsync(launcherFileLink).Result;
+                        using var fileStream = new FileStream(destinationFileName, FileMode.Create);
+
+                        stream.CopyTo(fileStream);
+                        fileStream.Close();
+
+                        // Start the new version and schedule closing the current instance.
+
+                        Process.Start(destinationFileName);
+
+                        Process.Start(new ProcessStartInfo()
+                        {
+                            Arguments = "/C choice /C Y /N /D Y /T 3 & Del \"" + Application.ExecutablePath + "\"",
+                            WindowStyle = ProcessWindowStyle.Hidden,
+                            CreateNoWindow = true,
+                            FileName = "cmd.exe"
+                        });
+                    }
+
+                    Application.Exit();
+                }
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -149,6 +202,11 @@ namespace LaunchFoundationGameCamera
         private void Button_LoadFovFix_Click(object sender, EventArgs e)
         {
             StartFovFix();
+        }
+
+        private void LauncherWindow_Shown(object sender, EventArgs e)
+        {
+            UpdateApplication();
         }
     }
 }

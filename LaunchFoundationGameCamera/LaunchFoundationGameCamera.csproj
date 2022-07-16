@@ -12,6 +12,7 @@
     <ApplicationIcon>Pictures\fgc.ico</ApplicationIcon>
     <PackageIcon>fgc.png</PackageIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyVersion>0.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -24,6 +25,10 @@
 
   <ItemGroup>
     <Content Include="Pictures\fgc.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.43" />
   </ItemGroup>
 
   <ItemGroup>

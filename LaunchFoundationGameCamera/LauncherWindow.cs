@@ -176,6 +176,7 @@ namespace LaunchFoundationGameCamera
 
         private void LauncherWindow_Load(object sender, EventArgs e)
         {
+            Text = $"Foundation Game Camera Launcher v{AppInformation.Version}";
             label_Supportinfo.Text = $"For support, troubleshooting and sharing screen captures join the discord: {DiscordInvite}";
         }
 

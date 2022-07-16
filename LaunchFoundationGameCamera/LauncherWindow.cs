@@ -27,54 +27,66 @@ namespace LaunchFoundationGameCamera
 
         private void UpdateApplication()
         {
-            var latestReleaseLink = $"{GithubLink}/releases/latest";
-
-            using var client = new HttpClient();
-            var result = client.GetAsync(latestReleaseLink).Result;
-
-            if (result.RequestMessage != null && result.RequestMessage.RequestUri != null)
+            try
             {
-                // Get version from release title.
+                var latestReleaseLink = $"{GithubLink}/releases/latest";
 
-                var Doc = new HtmlAgilityPack.HtmlDocument();
-                Doc.LoadHtml(result.Content.ReadAsStringAsync().Result);
+                using var client = new HttpClient();
+                var result = client.GetAsync(latestReleaseLink).Result;
 
-                var newVersion = Doc.DocumentNode.SelectSingleNode("//*[@id=\"repo-content-pjax-container\"]/div/div/div/div[1]/div[2]/div[1]/h1").InnerText;
-
-                // Check with current version and download new if available.
-
-                if (newVersion != AppInformation.Version)
+                if (result.RequestMessage != null && result.RequestMessage.RequestUri != null)
                 {
-                    if (MessageBox.Show("An update is available. Click OK to download and restart the application.",
-                                        "Update",
-                                        MessageBoxButtons.OKCancel,
-                                        MessageBoxIcon.Asterisk) == DialogResult.OK)
+                    // Get version from release title.
+
+                    var Doc = new HtmlAgilityPack.HtmlDocument();
+                    Doc.LoadHtml(result.Content.ReadAsStringAsync().Result);
+
+                    var newVersion = Doc.DocumentNode.SelectSingleNode("//*[@id=\"repo-content-pjax-container\"]/div/div/div/div[1]/div[2]/div[1]/h1").InnerText;
+
+                    // Check with current version and download new if available.
+
+                    if (newVersion != AppInformation.Version)
                     {
-                        var downloadLink = result.RequestMessage.RequestUri.ToString().Replace("tag", "download");
-                        var launcherFileLink = $"{downloadLink}/LaunchFoundationGameCamera.exe";
-                        var destinationFileName = $"LaunchFoundationGameCamera_{newVersion}.exe";
-
-                        using var stream = client.GetStreamAsync(launcherFileLink).Result;
-                        using var fileStream = new FileStream(destinationFileName, FileMode.Create);
-
-                        stream.CopyTo(fileStream);
-                        fileStream.Close();
-
-                        // Start the new version and schedule closing the current instance.
-
-                        Process.Start(destinationFileName);
-
-                        Process.Start(new ProcessStartInfo()
+                        if (MessageBox.Show("An update is available. Click OK to download and restart the application.",
+                                            "Update",
+                                            MessageBoxButtons.OKCancel,
+                                            MessageBoxIcon.Asterisk) == DialogResult.OK)
                         {
-                            Arguments = "/C choice /C Y /N /D Y /T 3 & Del \"" + Application.ExecutablePath + "\"",
-                            WindowStyle = ProcessWindowStyle.Hidden,
-                            CreateNoWindow = true,
-                            FileName = "cmd.exe"
-                        });
-                    }
+                            var downloadLink = result.RequestMessage.RequestUri.ToString().Replace("tag", "download");
+                            var launcherFileLink = $"{downloadLink}/LaunchFoundationGameCamera.exe";
+                            var destinationFileName = $"LaunchFoundationGameCamera_{newVersion}.exe";
 
-                    Application.Exit();
+                            using var stream = client.GetStreamAsync(launcherFileLink).Result;
+                            using var fileStream = new FileStream(destinationFileName, FileMode.Create);
+
+                            stream.CopyTo(fileStream);
+                            fileStream.Close();
+
+                            // Start the new version and schedule closing the current instance.
+
+                            Process.Start(destinationFileName);
+
+                            Process.Start(new ProcessStartInfo()
+                            {
+                                Arguments = "/C choice /C Y /N /D Y /T 3 & Del \"" + Application.ExecutablePath + "\"",
+                                WindowStyle = ProcessWindowStyle.Hidden,
+                                CreateNoWindow = true,
+                                FileName = "cmd.exe"
+                            });
+                        }
+
+                        Application.Exit();
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Update check failed!",
+                                "Update",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                Logger.LogLine(ex.Message);
             }
         }
 

@@ -25,6 +25,25 @@ namespace LaunchFoundationGameCamera
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Game process id</returns>
+        private int FindGameProcess()
+        {
+            // Try to find the game process id.
+
+            foreach (var game in SupportedGames)
+            {
+                var processId = DllInjector.GetProcessId(game);
+
+                if (processId != 0)
+                    return processId;
+            }
+
+            return 0;
+        }
+
         private void OpenWebsite(Sites site)
         {
             string link = GithubLink;
@@ -48,17 +67,7 @@ namespace LaunchFoundationGameCamera
         {
             Logger.LogLine("Starting FGC");
 
-            // Try to find the game process id.
-
-            int processId = 0;
-
-            foreach (var game in SupportedGames)
-            {
-                processId = DllInjector.GetProcessId(game);
-
-                if (processId != 0)
-                    break;
-            }
+            int processId = FindGameProcess();
 
             if (processId != 0)
             {
@@ -88,15 +97,7 @@ namespace LaunchFoundationGameCamera
 
             // Try to find the game process id.
 
-            int processId = 0;
-
-            foreach (var game in SupportedGames)
-            {
-                processId = DllInjector.GetProcessId(game);
-
-                if (processId != 0)
-                    break;
-            }
+            int processId = FindGameProcess();
 
             if (processId != 0)
             {

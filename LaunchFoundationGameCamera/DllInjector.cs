@@ -134,7 +134,7 @@ namespace LaunchFoundationGameCamera
 
                 _ = WaitForSingleObject(hThread, 0xFFFFFFFF);
 
-                Logger.LogLine("FGC loaded successfully");
+                Logger.LogLine("Loaded successfully");
             }
             finally
             {

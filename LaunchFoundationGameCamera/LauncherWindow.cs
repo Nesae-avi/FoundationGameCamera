@@ -29,9 +29,9 @@ namespace LaunchFoundationGameCamera
         {
             try
             {
-                var latestReleaseLink = $"{GithubLink}/releases/latest";
-
                 using var client = new HttpClient();
+
+                var latestReleaseLink = $"{GithubLink}/releases/latest";
                 var result = client.GetAsync(latestReleaseLink).Result;
 
                 if (result.RequestMessage != null && result.RequestMessage.RequestUri != null)
@@ -62,13 +62,13 @@ namespace LaunchFoundationGameCamera
                             stream.CopyTo(fileStream);
                             fileStream.Close();
 
-                            // Start the new version and schedule closing the current instance.
+                            // Start the new version, schedule deleting of the old version and close the current instance.
 
                             Process.Start(destinationFileName);
 
                             Process.Start(new ProcessStartInfo()
                             {
-                                Arguments = "/C choice /C Y /N /D Y /T 3 & Del \"" + Application.ExecutablePath + "\"",
+                                Arguments = "/C choice /C Y /N /D Y /T 2 & Del \"" + Application.ExecutablePath + "\"",
                                 WindowStyle = ProcessWindowStyle.Hidden,
                                 CreateNoWindow = true,
                                 FileName = "cmd.exe"

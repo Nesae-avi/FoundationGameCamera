@@ -78,7 +78,7 @@
             this.button_LoadFovFix.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.button_LoadFovFix.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button_LoadFovFix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_LoadFovFix.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_LoadFovFix.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button_LoadFovFix.ForeColor = System.Drawing.Color.White;
             this.button_LoadFovFix.Location = new System.Drawing.Point(392, 47);
             this.button_LoadFovFix.Name = "button_LoadFovFix";
@@ -107,7 +107,7 @@
             this.button_Start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
             this.button_Start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Start.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_Start.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button_Start.ForeColor = System.Drawing.Color.White;
             this.button_Start.Location = new System.Drawing.Point(58, 47);
             this.button_Start.Name = "button_Start";
@@ -185,7 +185,7 @@
             // 
             // LauncherWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(726, 439);

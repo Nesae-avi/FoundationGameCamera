@@ -82,6 +82,44 @@ namespace LaunchFoundationGameCamera
             }
         }
 
+        private void StartFovFix()
+        {
+            Logger.LogLine("Starting fov fix");
+
+            // Try to find the game process id.
+
+            int processId = 0;
+
+            foreach (var game in SupportedGames)
+            {
+                processId = DllInjector.GetProcessId(game);
+
+                if (processId != 0)
+                    break;
+            }
+
+            if (processId != 0)
+            {
+                var dllPath = Path.Combine(Path.GetTempPath(), "FoundationFovFix.dll");
+
+                if (!ResourceUnpacker.Unpack("LaunchFoundationGameCamera.FoundationFovFix.dll", dllPath))
+                {
+                    Logger.LogLine("Cannot unpack the resource");
+                    return;
+                }
+
+                if (DllInjector.Inject(processId, dllPath))
+                {
+                    Logger.LogLine("Finished successfully");
+                }
+            }
+            else
+            {
+                Logger.LogLine("No supported game is running");
+                return;
+            }
+        }
+
         private void LauncherWindow_Load(object sender, EventArgs e)
         {
             label_Supportinfo.Text = $"For support, troubleshooting and sharing screen captures join the discord: {DiscordInvite}";
@@ -105,6 +143,11 @@ namespace LaunchFoundationGameCamera
         private void Button_Start_Click(object sender, EventArgs e)
         {
             StartFGC();
+        }
+
+        private void Button_LoadFovFix_Click(object sender, EventArgs e)
+        {
+            StartFovFix();
         }
     }
 }

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LauncherWindow));
             this.panel_Content = new System.Windows.Forms.Panel();
             this.panel_Bottom = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_LoadFovFix = new System.Windows.Forms.Button();
             this.pictureBox_Github = new System.Windows.Forms.PictureBox();
             this.button_Start = new System.Windows.Forms.Button();
             this.pictureBox_Discord = new System.Windows.Forms.PictureBox();
@@ -61,7 +61,7 @@
             // 
             // panel_Bottom
             // 
-            this.panel_Bottom.Controls.Add(this.button1);
+            this.panel_Bottom.Controls.Add(this.button_LoadFovFix);
             this.panel_Bottom.Controls.Add(this.pictureBox_Github);
             this.panel_Bottom.Controls.Add(this.button_Start);
             this.panel_Bottom.Controls.Add(this.pictureBox_Discord);
@@ -71,21 +71,22 @@
             this.panel_Bottom.Size = new System.Drawing.Size(726, 209);
             this.panel_Bottom.TabIndex = 2;
             // 
-            // button1
+            // button_LoadFovFix
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(392, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 64);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "LOAD FOV FIX";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_LoadFovFix.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.button_LoadFovFix.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.button_LoadFovFix.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.button_LoadFovFix.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button_LoadFovFix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_LoadFovFix.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_LoadFovFix.ForeColor = System.Drawing.Color.White;
+            this.button_LoadFovFix.Location = new System.Drawing.Point(392, 47);
+            this.button_LoadFovFix.Name = "button_LoadFovFix";
+            this.button_LoadFovFix.Size = new System.Drawing.Size(276, 64);
+            this.button_LoadFovFix.TabIndex = 3;
+            this.button_LoadFovFix.Text = "LOAD FOV FIX";
+            this.button_LoadFovFix.UseVisualStyleBackColor = false;
+            this.button_LoadFovFix.Click += new System.EventHandler(this.Button_LoadFovFix_Click);
             // 
             // pictureBox_Github
             // 
@@ -219,6 +220,6 @@
         private Label label_Supportinfo;
         private Button button_Start;
         private PictureBox pictureBox_Github;
-        private Button button1;
+        private Button button_LoadFovFix;
     }
 }

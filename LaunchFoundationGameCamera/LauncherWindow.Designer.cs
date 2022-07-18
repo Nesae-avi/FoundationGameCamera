@@ -82,7 +82,7 @@
             this.button_LoadFovFix.ForeColor = System.Drawing.Color.White;
             this.button_LoadFovFix.Location = new System.Drawing.Point(392, 47);
             this.button_LoadFovFix.Name = "button_LoadFovFix";
-            this.button_LoadFovFix.Size = new System.Drawing.Size(276, 64);
+            this.button_LoadFovFix.Size = new System.Drawing.Size(276, 54);
             this.button_LoadFovFix.TabIndex = 3;
             this.button_LoadFovFix.Text = "LOAD FOV FIX";
             this.button_LoadFovFix.UseVisualStyleBackColor = false;
@@ -111,7 +111,7 @@
             this.button_Start.ForeColor = System.Drawing.Color.White;
             this.button_Start.Location = new System.Drawing.Point(58, 47);
             this.button_Start.Name = "button_Start";
-            this.button_Start.Size = new System.Drawing.Size(276, 64);
+            this.button_Start.Size = new System.Drawing.Size(276, 54);
             this.button_Start.TabIndex = 1;
             this.button_Start.Text = "LOAD FGC";
             this.button_Start.UseVisualStyleBackColor = false;
@@ -185,7 +185,7 @@
             // 
             // LauncherWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(726, 439);

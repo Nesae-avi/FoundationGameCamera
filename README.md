@@ -1,7 +1,7 @@
 # Foundation Game Camera
 A camera mod for the Foundation Engine.
 
-#### [Download the latest version](https://github.com/Nesae-avi/FoundationGameCamera/releases/download/latest/LaunchFoundationGameCamera.exe)
+#### [Download FoundationGameCamera](https://github.com/Nesae-avi/FoundationGameCamera/releases/download/latest/LaunchFoundationGameCamera.exe)
 
 ## How to use
 

@@ -12,7 +12,7 @@
     <ApplicationIcon>Pictures\fgc.ico</ApplicationIcon>
     <PackageIcon>fgc.png</PackageIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>0.2.0</AssemblyVersion>
+    <AssemblyVersion>0.2.1</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

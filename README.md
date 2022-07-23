@@ -11,9 +11,6 @@ A camera mod for the Foundation Engine.
 4. Enjoy!
 
 Do not use the camera mod and the field of view fix at the same time.
-## Discord Server
-
-For support, troubleshooting and sharing screen captures join the discord server: [FGC Discord](https://discord.com/invite/rdS8rtEGYG).
 
 ## Key Bindings
 
